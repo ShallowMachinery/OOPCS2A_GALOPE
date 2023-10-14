@@ -26,4 +26,29 @@ Module Module1
             End Try
         End If
     End Sub
+
+
+    Public Sub SaveRecord()
+        Dim Fname, Lname, Course As String
+        Fname = Form1.txtFname.Text
+        Lname = Form1.txtLname.Text
+        Course = Form1.txtCourse.Text
+        sqlquery = "INSERT INTO Students (StudFName, StudLName, Course) VALUES (@fname, @lname, @course)"
+        'pass the query and connection to mysqlcommand
+        mysqlcmd = New MySqlCommand(sqlquery, con)
+        'add parameter value
+        mysqlcmd.Parameters.AddWithValue("@fname", Fname)
+        mysqlcmd.Parameters.AddWithValue("@lname", Lname)
+        mysqlcmd.Parameters.AddWithValue("@course", Course)
+        Try
+            mysqlcmd.ExecuteNonQuery()
+            MsgBox("Record saved successfuley!")
+        Catch ex As Exception
+            MessageBox.Show("Error " & ex.Message)
+        Finally
+            Form1.txtFname.Clear()
+            Form1.txtLname.Clear()
+            Form1.txtCourse.Clear()
+        End Try
+    End Sub
 End Module
