@@ -8,4 +8,8 @@ Public Class Form1
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
         SaveRecord()
     End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        SearchData()
+    End Sub
 End Class

@@ -46,9 +46,34 @@ Module Module1
         Catch ex As Exception
             MessageBox.Show("Error " & ex.Message)
         Finally
-            Form1.txtFname.Clear()
-            Form1.txtLname.Clear()
-            Form1.txtCourse.Clear()
+            TextClear()
+        End Try
+    End Sub
+
+    Sub TextClear()
+        Form1.txtFname.Clear()
+        Form1.txtLname.Clear()
+        Form1.txtCourse.Clear()
+    End Sub
+
+    Public Sub SearchData()
+        Dim uid As String
+        uid = Form1.txtUserID.Text
+        sqlquery = "SELECT * FROM Students WHERE StudID = @uid"
+        mysqlcmd = New MySqlCommand(sqlquery, con)
+        mysqlcmd.Parameters.AddWithValue("@uid", uid)
+        Try
+            reader = mysqlcmd.ExecuteReader()
+
+            If reader.Read Then
+                Form1.txtFCatch.Text = reader("StudFName").ToString()
+                Form1.txtLCatch.Text = reader("StudLName").ToString()
+                Form1.txtCCatch.Text = reader("Course").ToString()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            reader.Close()
         End Try
     End Sub
 End Module

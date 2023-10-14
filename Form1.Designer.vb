@@ -30,7 +30,18 @@ Partial Class Form1
         Label3 = New Label()
         Label2 = New Label()
         Label1 = New Label()
+        GroupBox2 = New GroupBox()
+        txtUserID = New TextBox()
+        Label7 = New Label()
+        btnSearch = New Button()
+        txtCCatch = New TextBox()
+        txtLCatch = New TextBox()
+        txtFCatch = New TextBox()
+        Label4 = New Label()
+        Label5 = New Label()
+        Label6 = New Label()
         GroupBox1.SuspendLayout()
+        GroupBox2.SuspendLayout()
         SuspendLayout()
         ' 
         ' GroupBox1
@@ -42,6 +53,7 @@ Partial Class Form1
         GroupBox1.Controls.Add(Label3)
         GroupBox1.Controls.Add(Label2)
         GroupBox1.Controls.Add(Label1)
+        GroupBox1.ForeColor = SystemColors.ControlText
         GroupBox1.Location = New Point(10, 11)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(235, 235)
@@ -106,16 +118,115 @@ Partial Class Form1
         Label1.TabIndex = 0
         Label1.Text = "First name:"
         ' 
+        ' GroupBox2
+        ' 
+        GroupBox2.Controls.Add(txtUserID)
+        GroupBox2.Controls.Add(Label7)
+        GroupBox2.Controls.Add(btnSearch)
+        GroupBox2.Controls.Add(txtCCatch)
+        GroupBox2.Controls.Add(txtLCatch)
+        GroupBox2.Controls.Add(txtFCatch)
+        GroupBox2.Controls.Add(Label4)
+        GroupBox2.Controls.Add(Label5)
+        GroupBox2.Controls.Add(Label6)
+        GroupBox2.Location = New Point(251, 11)
+        GroupBox2.Name = "GroupBox2"
+        GroupBox2.Size = New Size(235, 235)
+        GroupBox2.TabIndex = 7
+        GroupBox2.TabStop = False
+        GroupBox2.Text = "Search Record"
+        ' 
+        ' txtUserID
+        ' 
+        txtUserID.Location = New Point(113, 29)
+        txtUserID.Name = "txtUserID"
+        txtUserID.Size = New Size(100, 23)
+        txtUserID.TabIndex = 8
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(19, 32)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(65, 15)
+        Label7.TabIndex = 7
+        Label7.Text = "Student ID:"
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.Location = New Point(90, 173)
+        btnSearch.Name = "btnSearch"
+        btnSearch.Size = New Size(123, 36)
+        btnSearch.TabIndex = 6
+        btnSearch.Text = "Search Record"
+        btnSearch.UseVisualStyleBackColor = True
+        ' 
+        ' txtCCatch
+        ' 
+        txtCCatch.Enabled = False
+        txtCCatch.Location = New Point(113, 127)
+        txtCCatch.Name = "txtCCatch"
+        txtCCatch.Size = New Size(100, 23)
+        txtCCatch.TabIndex = 5
+        ' 
+        ' txtLCatch
+        ' 
+        txtLCatch.Enabled = False
+        txtLCatch.Location = New Point(113, 94)
+        txtLCatch.Name = "txtLCatch"
+        txtLCatch.Size = New Size(100, 23)
+        txtLCatch.TabIndex = 4
+        ' 
+        ' txtFCatch
+        ' 
+        txtFCatch.Enabled = False
+        txtFCatch.Location = New Point(113, 61)
+        txtFCatch.Name = "txtFCatch"
+        txtFCatch.Size = New Size(100, 23)
+        txtFCatch.TabIndex = 3
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(19, 130)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(47, 15)
+        Label4.TabIndex = 2
+        Label4.Text = "Course:"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(19, 97)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(64, 15)
+        Label5.TabIndex = 1
+        Label5.Text = "Last name:"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(19, 64)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(65, 15)
+        Label6.TabIndex = 0
+        Label6.Text = "First name:"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(258, 265)
+        BackColor = Color.LightBlue
+        ClientSize = New Size(497, 259)
+        Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        GroupBox2.ResumeLayout(False)
+        GroupBox2.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -127,4 +238,14 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents txtUserID As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtCCatch As TextBox
+    Friend WithEvents txtLCatch As TextBox
+    Friend WithEvents txtFCatch As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class
