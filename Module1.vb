@@ -121,7 +121,7 @@ Module Module1
                 .DataSource = dbTable
                 .AutoResizeColumns()
             End With
-            'display the record in datagridview
+            'display the record in datagridview 
             ' reader = mysqlcmd.ExecuteReader
         Catch ex As Exception
             MsgBox(ex.Message)
