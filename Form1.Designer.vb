@@ -215,7 +215,7 @@ Partial Class Form1
         ' 
         ' btnDisplay
         ' 
-        btnDisplay.Location = New Point(188, 257)
+        btnDisplay.Location = New Point(128, 253)
         btnDisplay.Name = "btnDisplay"
         btnDisplay.Size = New Size(117, 34)
         btnDisplay.TabIndex = 8
