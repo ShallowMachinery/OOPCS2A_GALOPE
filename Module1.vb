@@ -66,10 +66,20 @@ Module Module1
                 Form1.txtFCatch.Text = reader("StudFName").ToString()
                 Form1.txtLCatch.Text = reader("StudLName").ToString()
                 Form1.txtCCatch.Text = reader("Course").ToString()
+                Form1.btnDelete.Enabled = True
+                Form1.btnUpdate.Enabled = True
+                Form1.txtFCatch.Enabled = True
+                Form1.txtLCatch.Enabled = True
+                Form1.txtCCatch.Enabled = True
             Else
                 Form1.txtFCatch.Text = "No"
                 Form1.txtLCatch.Text = "student"
                 Form1.txtCCatch.Text = "found"
+                Form1.txtFCatch.Enabled = False
+                Form1.txtLCatch.Enabled = False
+                Form1.txtCCatch.Enabled = False
+                Form1.btnDelete.Enabled = False
+                Form1.btnUpdate.Enabled = False
             End If
 
         Catch ex As Exception
@@ -127,6 +137,45 @@ Module Module1
             MsgBox(ex.Message)
         Finally
             con.Close()
+        End Try
+    End Sub
+
+    Public Sub UpdateRecord(StudID As String, FName As String, LName As String, Course As String)
+        sqlquery = "UPDATE Students SET StudFName = @FName, StudLName = @LName, Course = @Course WHERE StudID = @StudID"
+        Try
+            Using cmd As New MySqlCommand(sqlquery, con)
+                cmd.Parameters.AddWithValue("@FName", FName)
+                cmd.Parameters.AddWithValue("@LName", LName)
+                cmd.Parameters.AddWithValue("@Course", Course)
+                cmd.Parameters.AddWithValue("@StudID", StudID)
+                cmd.ExecuteNonQuery()
+                MsgBox("Update successful.", vbInformation, "Update Message")
+            End Using
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, vbInformation, "Error Message")
+        Finally
+            Form1.txtFCatch.Clear()
+            Form1.txtLCatch.Clear()
+            Form1.txtCCatch.Clear()
+            Form1.txtUserID.Clear()
+        End Try
+    End Sub
+
+    Public Sub DeleteRecord(StudID As String)
+        sqlquery = "DELETE FROM Students WHERE StudID = @StudID"
+        Try
+            Using cmd As New MySqlCommand(sqlquery, con)
+                cmd.Parameters.AddWithValue("@StudID", StudID)
+                cmd.ExecuteNonQuery()
+                MsgBox("Deletion successful.", vbInformation, "Delete Message")
+            End Using
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, vbInformation, "Error Message")
+        Finally
+            Form1.txtFCatch.Clear()
+            Form1.txtLCatch.Clear()
+            Form1.txtCCatch.Clear()
+            Form1.txtUserID.Clear()
         End Try
     End Sub
 End Module

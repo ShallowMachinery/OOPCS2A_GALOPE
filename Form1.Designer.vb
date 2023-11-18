@@ -31,6 +31,8 @@ Partial Class Form1
         Label2 = New Label()
         Label1 = New Label()
         GroupBox2 = New GroupBox()
+        btnUpdate = New Button()
+        btnDelete = New Button()
         txtUserID = New TextBox()
         Label7 = New Label()
         btnSearch = New Button()
@@ -57,7 +59,7 @@ Partial Class Form1
         GroupBox1.ForeColor = SystemColors.ControlText
         GroupBox1.Location = New Point(10, 11)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(235, 235)
+        GroupBox1.Size = New Size(235, 265)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Save Record"
@@ -121,6 +123,8 @@ Partial Class Form1
         ' 
         ' GroupBox2
         ' 
+        GroupBox2.Controls.Add(btnUpdate)
+        GroupBox2.Controls.Add(btnDelete)
         GroupBox2.Controls.Add(txtUserID)
         GroupBox2.Controls.Add(Label7)
         GroupBox2.Controls.Add(btnSearch)
@@ -132,10 +136,28 @@ Partial Class Form1
         GroupBox2.Controls.Add(Label6)
         GroupBox2.Location = New Point(251, 11)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(235, 235)
+        GroupBox2.Size = New Size(235, 265)
         GroupBox2.TabIndex = 7
         GroupBox2.TabStop = False
         GroupBox2.Text = "Search Record"
+        ' 
+        ' btnUpdate
+        ' 
+        btnUpdate.Location = New Point(39, 158)
+        btnUpdate.Name = "btnUpdate"
+        btnUpdate.Size = New Size(84, 34)
+        btnUpdate.TabIndex = 9
+        btnUpdate.Text = "Update"
+        btnUpdate.UseVisualStyleBackColor = True
+        ' 
+        ' btnDelete
+        ' 
+        btnDelete.Location = New Point(129, 156)
+        btnDelete.Name = "btnDelete"
+        btnDelete.Size = New Size(84, 34)
+        btnDelete.TabIndex = 10
+        btnDelete.Text = "Delete"
+        btnDelete.UseVisualStyleBackColor = True
         ' 
         ' txtUserID
         ' 
@@ -155,7 +177,7 @@ Partial Class Form1
         ' 
         ' btnSearch
         ' 
-        btnSearch.Location = New Point(90, 173)
+        btnSearch.Location = New Point(90, 199)
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(123, 36)
         btnSearch.TabIndex = 6
@@ -215,7 +237,7 @@ Partial Class Form1
         ' 
         ' btnDisplay
         ' 
-        btnDisplay.Location = New Point(128, 253)
+        btnDisplay.Location = New Point(187, 282)
         btnDisplay.Name = "btnDisplay"
         btnDisplay.Size = New Size(117, 34)
         btnDisplay.TabIndex = 8
@@ -227,7 +249,7 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightBlue
-        ClientSize = New Size(503, 299)
+        ClientSize = New Size(503, 328)
         Controls.Add(btnDisplay)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
@@ -260,4 +282,6 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents btnDisplay As Button
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnDelete As Button
 End Class
