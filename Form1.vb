@@ -24,12 +24,22 @@ Public Class Form1
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        Dim ans As DialogResult = MessageBox.Show("Do you want to save changes?", "Conifmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim ans As DialogResult = MessageBox.Show("Do you want to save changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ans = DialogResult.Yes Then
             UpdateRecord(txtUserID.Text, txtFCatch.Text, txtLCatch.Text, txtCCatch.Text)
             MsgBox("Update successful.")
         Else
             MsgBox("Update cancelled.")
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim ans As DialogResult = MessageBox.Show("Do you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If ans = DialogResult.Yes Then
+            DeleteRecord(txtUserID.Text)
+            MsgBox("Deletion successful.")
+        Else
+            MsgBox("Deletion cancelled.")
         End If
     End Sub
 End Class
