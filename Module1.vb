@@ -1,5 +1,4 @@
-﻿Imports System.DirectoryServices
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Module Module1
     Dim con As New MySqlConnection
@@ -8,6 +7,8 @@ Module Module1
 
     Dim host, uname, pwd, dbname As String
     Dim sqlquery As String
+    Dim dbTable As New DataTable
+    Dim adapter As New MySqlDataAdapter
 
     Public Sub ConnectDbase()
         host = "127.0.0.1"
@@ -20,14 +21,12 @@ Module Module1
             con.ConnectionString = "server = " & host & "; user id = " & uname & "; password = " & pwd & "; database = " & dbname & ""
             Try
                 con.Open()
-                MessageBox.Show("Connected!")
+                ' MessageBox.Show("Connected!")
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
             End Try
         End If
     End Sub
-
-
     Public Sub SaveRecord()
         Dim Fname, Lname, Course As String
         Fname = Form1.txtFname.Text
@@ -42,20 +41,18 @@ Module Module1
         mysqlcmd.Parameters.AddWithValue("@course", Course)
         Try
             mysqlcmd.ExecuteNonQuery()
-            MsgBox("Record saved successfuley!")
+            MsgBox("Record saved successfully!")
         Catch ex As Exception
             MessageBox.Show("Error " & ex.Message)
         Finally
             TextClear()
         End Try
     End Sub
-
     Sub TextClear()
         Form1.txtFname.Clear()
         Form1.txtLname.Clear()
         Form1.txtCourse.Clear()
     End Sub
-
     Public Sub SearchData()
         Dim uid As String
         uid = Form1.txtUserID.Text
@@ -69,11 +66,67 @@ Module Module1
                 Form1.txtFCatch.Text = reader("StudFName").ToString()
                 Form1.txtLCatch.Text = reader("StudLName").ToString()
                 Form1.txtCCatch.Text = reader("Course").ToString()
+            Else
+                Form1.txtFCatch.Text = "No"
+                Form1.txtLCatch.Text = "student"
+                Form1.txtCCatch.Text = "found"
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             reader.Close()
+        End Try
+    End Sub
+    Public Sub LoadAllData()
+        sqlquery = "SELECT * FROM Students"
+        adapter = New MySqlDataAdapter(sqlquery, con)
+        Try
+            dbTable = New DataTable
+            adapter.Fill(dbTable)
+            With Form2.dgvData
+                .DataSource = dbTable
+                .AutoResizeColumns()
+            End With
+            'display the record in datagridview
+            ' reader = mysqlcmd.ExecuteReader
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Public Sub LoadCourse()
+        sqlquery = "SELECT DISTINCT Course FROM Students"
+        Try
+            mysqlcmd = New MySqlCommand(sqlquery, con)
+            reader = mysqlcmd.ExecuteReader
+            While reader.Read
+                Form2.cboCourse.Items.Add(reader("course").ToString)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Public Sub DisplayData(kurso As String)
+        sqlquery = "SELECT * FROM Students WHERE course = @kurso"
+        adapter = New MySqlDataAdapter(sqlquery, con)
+        adapter.SelectCommand.Parameters.AddWithValue("@kurso", kurso)
+        Try
+            dbTable = New DataTable
+            adapter.Fill(dbTable)
+            With Form2.dgvData
+                .DataSource = dbTable
+                .AutoResizeColumns()
+            End With
+            'display the record in datagridview
+            ' reader = mysqlcmd.ExecuteReader
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
         End Try
     End Sub
 End Module
