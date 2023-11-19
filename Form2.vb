@@ -18,12 +18,12 @@ Public Class Form2
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         Form1.Show()
         Me.Dispose()
+        ConnectDbase()
     End Sub
 
     Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
         Dim SelectedCourse As String
         SelectedCourse = cboCourse.SelectedItem.ToString
         DisplayData(SelectedCourse)
-
     End Sub
 End Class

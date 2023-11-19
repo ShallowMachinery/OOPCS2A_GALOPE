@@ -77,7 +77,7 @@ Partial Class Form2
         Controls.Add(dgvData)
         Name = "Form2"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form2"
+        Text = "Database"
         CType(dgvData, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub

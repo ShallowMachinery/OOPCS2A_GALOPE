@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports System.Runtime.CompilerServices
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
@@ -246,7 +248,7 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.LightBlue
         ClientSize = New Size(503, 328)
@@ -255,12 +257,13 @@ Partial Class Form1
         Controls.Add(GroupBox1)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form1"
+        Text = "Student Finder"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
         ResumeLayout(False)
+        MaximizeBox = False
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
