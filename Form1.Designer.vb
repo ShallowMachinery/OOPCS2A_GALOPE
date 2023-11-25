@@ -255,6 +255,7 @@ Partial Class Form1
         Controls.Add(btnDisplay)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
+        MaximizeBox = False
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Student Finder"
@@ -263,7 +264,6 @@ Partial Class Form1
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
         ResumeLayout(False)
-        MaximizeBox = False
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
